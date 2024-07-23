@@ -70,19 +70,19 @@ A sophisticated XSS scanning tool to find cross-site scripting vulnerabilities, 
    
 
 ### Scanning a single URL:
-    ```bash
+   
     python3 xss_by_muhammad_waseem.py -u http://example.com/hpp/?pp=12 -o out.txt
-    ```
+  
 
 ### Crawl and scan:
-    ```bash
+  
     python3 xss_by_muhammad_waseem.py -u http://example.com/hpp/?pp=12 -o out.txt --crawl
-    ```
+ 
 
 ### Using PIPE:
-    ```bash
+   
     cat katana.txt | python3 xss_by_muhammad_waseem.py --pipe -t 7 -o result.txt
-    ```
+  
 
 ## License
 

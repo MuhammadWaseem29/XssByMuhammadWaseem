@@ -1,35 +1,17 @@
-import requests
-from bs4 import BeautifulSoup
+# utils.py
 
-def load_payloads(file_path):
-    with open(file_path, 'r') as file:
-        payloads = [line.strip() for line in file]
-    return payloads
+def load_payloads(payload_file):
+    # Function to load payloads
+    pass
 
 def extract_forms(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    forms = soup.find_all('form')
-    return forms
+    # Function to extract forms from the URL
+    pass
 
-def submit_form(form, url, payload, headers=None):
-    action = form.get('action')
-    method = form.get('method', 'get').lower()
-    inputs = form.find_all('input')
-
-    data = {}
-    for input_tag in inputs:
-        name = input_tag.get('name')
-        if name:
-            data[name] = payload
-
-    if method == 'post':
-        return requests.post(url + action, data=data, headers=headers)
-    else:
-        return requests.get(url + action, params=data, headers=headers)
+def submit_form(url, form_data):
+    # Function to submit forms
+    pass
 
 def extract_links(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    links = [a['href'] for a in soup.find_all('a', href=True)]
-    return links
+    # Function to extract links from the URL
+    pass

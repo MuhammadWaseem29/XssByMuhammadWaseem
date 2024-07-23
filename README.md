@@ -10,7 +10,7 @@ A sophisticated XSS scanning tool to find cross-site scripting vulnerabilities, 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/XssByMuhammadWaseem.git
+    git clone https://github.com/MuhammadWaseem29/XssByMuhammadWaseem.git
     cd XssByMuhammadWaseem
     ```
 

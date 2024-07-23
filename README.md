@@ -23,29 +23,29 @@ A sophisticated XSS scanning tool to find cross-site scripting vulnerabilities, 
 ## Usage
 
 ### Scanning URLs from a file:
-    ```bash
+    
     python3 xss_by_muhammad_waseem.py -f <filename> -o <output>
-    ```
+   
 
 ### Scanning a single URL:
-    ```bash
+   
     python3 xss_by_muhammad_waseem.py -u http://example.com/hpp/?pp=12 -o out.txt
-    ```
+ 
 
 ### Using custom headers:
-    ```bash
+ 
     python3 xss_by_muhammad_waseem.py -f urls.txt -H "Cookies:test=123;id=asdasd, User-Agent: Mozilla/Firefox" -t 7 -o result.txt
-    ```
+   
 
 ### Using PIPE:
-    ```bash
+    
     cat katana.txt | python3 xss_by_muhammad_waseem.py --pipe -t 7 -o result.txt
-    ```
+  
 
 ### Crawl and Scan:
-    ```bash
+    
     python3 xss_by_muhammad_waseem.py -u http://example.com/hpp/?pp=12 -o out.txt --crawl
-    ```
+  
 
 ## Arguments
 
@@ -60,14 +60,14 @@ A sophisticated XSS scanning tool to find cross-site scripting vulnerabilities, 
 ## Examples
 
 ### Using multiple headers:
-    ```bash
+    
     python3 xss_by_muhammad_waseem.py -f urls.txt -H "Cookies:test=123;id=asdasd, User-Agent: Mozilla/Firefox" -t 7 -o result.txt
-    ```
+   
 
 ### Using a single header:
-    ```bash
+   
     python3 xss_by_muhammad_waseem.py -f urls.txt -H "Cookies:test=123;id=asdasd" -t 7 -o result.txt
-    ```
+   
 
 ### Scanning a single URL:
     ```bash
